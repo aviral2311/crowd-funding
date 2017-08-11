@@ -1,0 +1,55 @@
+<div class="container" ng-show="model.check==0">
+	<form class="form-horizontal">
+		<div class="form-group">
+			<label for="oldPassword" class="control-label col-sm-4">OLD PASSWORD</label>
+			<div class="col-sm-8">
+				<input type="password" id="oldPassword" name="oldPassword" ng-model="model.pr.oldPassword" class="form-control" placeholder="Old Password..">
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="newPassword" class="control-label col-sm-4">NEW PASSWORD</label>
+			<div class="col-sm-8">
+				<input type="password" ng-model="model.pr.newPassword" name="newPassword" ng-required="required"id="newPassword" class="form-control">
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<div class="col-sm-offset-4 col-sm-4">
+				<button ng-click="model.updatePassword()" class="btn btn-primary">CHANGE</button>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="container" ng-show="model.check==1">
+	<div class="row">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th class="col-sm-8"><h3 class="page-header">CAUSE</h3></th>
+					<th class="col-sm-4"><h3 class="page-header">OPTIONS</h3></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="cause in model.causeList">
+					<td class="col-sm-8" >{{cause.causeName}}</td>
+					<td class="col-sm-8"><button type="button" class="btn btn-primary"   ng-click="model.removeCause(cause)" value="REMOVE">REMOVE</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<div class="row">
+		<form class="form-inline">
+			<div class="form-group">
+				<label for="cause" class="col-sm-4 control-label text-center">CAUSE</label>
+				<div class="col-sm-6">
+					<input ng-model="model.cause.causeName" type="text" name="cause" id="cause" placeholder="Cause.." ng-required="required"class="form-control" required>
+				</div>
+				<div class="col-sm-2">
+					<button type="button" class="btn btn-primary" ng-click="model.addCause()" value="ADD">ADD</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

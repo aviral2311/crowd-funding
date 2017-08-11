@@ -1,0 +1,101 @@
+
+    <div class="container" ng-show="model.check== 0">
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <p class="lead">Categories</p>
+                <div class="list-group" >
+                <div ng-repeat="cause in model.causeList" >
+                <a href="" class="list-group-item" ng-click= "filters.causeName = cause.causeName">{{cause.causeName}}</a>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+
+                <div class="row carousel-holder">
+
+
+                </div>
+
+                <div class="row">
+                <div ng-repeat="project in model.projectList" ng-show ="filters.causeName == null || project.cause.causeName == filters.causeName">
+              
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="thumbnail">
+                            <img src="http://placehold.it/320x150" alt="">
+                            <div class="caption">
+                                <h4 class="pull-right">${{project.goal}}</h4>
+                                <h4><a ng-click = "model.projectDetail(project)">{{project.title}}</a>
+                                </h4>
+                                <p>{{project.description}}</p>
+                            </div>
+                           
+                        </div>
+                    </div>
+				</div>
+                    
+
+                    <div class="col-sm-4 col-lg-4 col-md-4">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+    <div class="container" ng-show="model.check==1">
+    
+    	<div class="col-md-3">
+                <p class="lead">Categories</p>
+                <div class="list-group" >
+                <div>
+                	<a href="" class="list-group-item" ng-click="filters.status= null; model.changeTableStatus(0)">All Projects</a>
+                </div>
+                <div ng-repeat="status in model.projectStatus" >
+                <a href="" class="list-group-item" ng-click= "(filters.status = status); model.changeTableStatus(0)">{{status}}</a>
+                </div>
+                <div>
+                	<a href="" class="list-group-item" ng-click="model.changeTableStatus(1)">Users</a>
+                </div>
+                </div>
+        </div>
+     	
+     	<div class="col-md-9">
+     			<table class="table table-hover" ng-show="model.userTable== 0">
+                    <thead>
+                    <tr>
+                        <th class="col-md-5"><h3 class="page-header">TITLE</h3></th>
+                        <th class="col-md-2"><h3 class="page-header">OWNER</h3></th>
+                        <th class="col-md-2"><h3 class="page-header">DONATION</h3></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="project in model.projectList" ng-show ="filters.status == null || project.status == filters.status">
+                        <td class="col-md-5"><a ng-click="model.projectDetail(project)">{{project.title}}</a></td>
+                        <td class="col-md-2"><a ng-click="model.userDetail(project.creatorId)">{{project.creatorName}}</a></td>
+                        <td class="col-md-2">{{model.calculateTotal(project)}}</td>
+                    </tr>
+                    </tbody>
+
+                </table>
+                <table class="table table-hover" ng-show="model.userTable == 1">
+                	<thead>
+                		<tr>
+                			<th class="col-md-9"><h3 class="page-header">USERS</h3></th>
+                		</tr>
+                	</thead>
+                	<tbody>
+                		<tr ng-repeat="user in model.users">
+                			<td class="col-md-9">{{user.username}}</td>
+                		</tr>
+                	</tbody>
+                </table>
+     	</div>
+    </div>
+   
+

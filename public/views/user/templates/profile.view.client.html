@@ -1,0 +1,136 @@
+<div class="container">
+	<div class="navbar col-md-12">
+        <ul class="nav nav-tabs nav-justified">
+            <a name="p" class="nav-item nav-link active col-md-3 text-center" data-toggle="tab" ng-click ="model.changeTab(0)">Profile</a>
+            <a name="pro" class="nav-item nav-link col-md-3 text-center" data-toggle="tab" ng-click ="model.changeTab(1)">Projects</a>
+            <a name="dona" class="nav-item nav-link col-md-3 text-center" data-toggle="tab" ng-click ="model.changeTab(2)">Donations</a>
+        </ul>
+    </div>
+
+    <div class="tab-content col-md-12">
+        <div class="tab-pane active" name="p" id="p" ng-show="model.tabs == 0">
+
+            <form class="form-horizontal">
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="email">Email</label>
+                    <div class="col-md-8">
+                        <label class="form-control" id="email" name="email">{{model.user.email}}</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="userId">ID</label>
+                    <div class="col-md-8">
+                        <label class="form-control" id="userId" name="userId">{{model.user.user_id}}</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="firstName">FirstName</label>
+                    <div class="col-md-8">
+                        <input ng-model="model.user.firstName" id="firstName" name="firstName" placeholder="FirstName" class="form-control input-md" required="" type="text" value="{{model.user.firstName}}">
+                    </div>
+                </div>
+
+                <br>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="lastName">LastName</label>
+                    <div class="col-md-8">
+                        <input ng-model="model.user.lastName"id="lastName" name="lastName" placeholder="LastName" class="form-control input-md" type="text" required="" value ="{{model.user.lastName}}">
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="addressLine1">addressLine1</label>
+                    <div class="col-md-8">
+                        <input ng-model="model.user.addressLine1" id="addressLine1" name="addressLine1" placeholder="addressLine1" class="form-control input-md" required="" type="text" value = "{{model.user.addressLine1}}">
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="addressLine2">addressLine2</label>
+                    <div class="col-md-8">
+                        <input ng-model="model.user.addressLine2" id="addressLine2" name="addressLine2" placeholder="Write Your Fundraiser Story Here"  class="form-control input-md" required="" type="text" value="{{model.user.addressLine2}}">
+                    </div>
+                </div>
+                <br>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="city">city</label>
+                    <div class="col-md-8">
+                        <input ng-model="model.user.city" id="city" name="city" placeholder="city" class="form-control input-md" required="" type="text" value = "{{model.user.city}}">
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="zipcode">zipcode</label>
+                    <div class="col-md-8">
+                        <input ng-model="model.user.zipCode" id="zipcode" name="zipcode" placeholder="zipcode" class="form-control input-md" required="" type="text" value = "{{model.user.zipCode}}">
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="phone">phone</label>
+                    <div class="col-md-8">
+                        <input ng-model="model.user.phone" id="phone" name="phone" placeholder="phone" class="form-control input-md" required="" type="text" value='{{model.user.phone}}'>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <div class="col-md-4 col-sm-offset-4">
+                        <button ng-click="model.updateProfile()" id="submit" name="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="tab-pane" id="pro" ng-show = "model.tabs == 1">
+
+            <div class="container">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="col-md-8"><h3 class="page-header" ng-click ="model.projectDetail()">TITLE</h3></th>
+                            <th class="col-md-4"><h3 class="page-header">DONATION</h3></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="project in model.projects">
+                            <td class="col-md-8"><a ng-click="model.editProjectDetail(project)">{{project.title}}</a></td>
+                            <td class="col-md-4">{{model.calculateTotal(project)}}</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+
+        <div class="tab-pane" id="dona" ng-show = "model.tabs == 2">
+
+            <div class="container">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th class="col-md-8"><h3 class="page-header">TITLE</h3></th>
+                        <th class="col-md-4"><h3 class="page-header">DONATION</h3></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="donation in model.donations">
+                        <td class="col-md-8"><a ng-click="model.projectDetail(project)">{{donation.title}}</a></td>
+                        <td class="col-md-4">{{model.getUserDonationAmount(donation)}}</td>
+                    </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+

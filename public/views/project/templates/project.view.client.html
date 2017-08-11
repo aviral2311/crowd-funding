@@ -1,0 +1,195 @@
+
+	<!--Google Analytics-->
+
+
+
+	<!--header-->
+	<header class="header">
+		<div class="container">
+			<div class="row">
+				<div class="goal-summary pull-left">
+					<div class="backers">
+						<h3>{{model.numOfSupporters}}</h3>
+						<span>backers</span>
+					</div>
+					<div class="funded">
+						<h3>{{model.totalRaised}}</h3>
+						<span>raised out of ${{model.project.goal}}</span>
+					</div>
+					<div class="time-left">
+						<h3>{{model.project.endDate}}</h3>
+						<span>End Date</span>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</header>
+	<!--/header-->
+	<!--main content-->
+	<div class="main-content">
+		<div class="container">
+			<div class="row">
+				<div class="content col-md-8 col-sm-12 col-xs-12">
+					<div class="section-block">
+						<div class="funding-meta">
+							<h1>{{model.project.title}}</h1>
+							<span class="type-meta"><i class="fa fa-user"></i> {{model.project.creatorName}}</span>
+							<span class="type-meta"><i class="fa fa-tag"></i> <a href="#">crowdfunding</a>, <a href="#">launch</a> </span>
+							<!--img src="assets/img/image-heartbeat.jpg" class="img-responsive" alt="launch HTML5 Crowdfunding"-->
+							<div class="video-frame">
+								<iframe src="https://player.vimeo.com/video/67938315" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+							</div>
+							<p>{{model.project.description}}</p>
+							<h2>${{model.totalRaised}}</h2>							
+							<span class="contribution">raised by <strong>{{model.numOfSupporters}}</strong>volunteers</span>
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style= "width: {{model.totalRaisedinPercent}}%;">
+									<span class="sr-only">{{model.totalRaisedinPercent}}% Complete</span>
+								</div>
+							</div>
+							<span class="goal-progress"><strong>{{model.totalRaisedinPercent}}%</strong> of ${{model.project.goal}} raised</span>
+						</div>
+						
+						
+					</div>
+					
+					<div class="section-block" ng-show="model.checkAdmin()">
+						<div class="section-tabs">
+							<ul class="nav nav-tabs" tole="tablist">
+								<li role="presentation" class="active">
+									<div class="deactivation-block form-group">
+										<form class="form-horizontal">
+											<div class="form-group">
+												<label for="de" class="control-label col-sm-2"></label>
+												<div class="col-sm-8">
+													<input type="text" ng-model="model.project.reasonForStatus" placeholder="Reason.." name="de" id="de" class="form-control" required>
+												</div>
+												<div class="col-sm-2">
+													<button class="btn btn-primary" ng-click="model.deactivateProject()">DEACTIVATE</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					
+					<!--tabs-->
+					<div class="section-block" ng-show="model.donationCheck()&& !model.checkUser() &&!model.checkAdmin()">
+						<div class="section-tabs">
+							<ul class="nav nav-tabs" role="tablist">
+								<li role="presentation" class="active">
+									<div class="donation-block">
+										<div class="form-group">
+			  							<label class="control-label" for="donation">Donation Amount in $</label>  
+			  							<div>
+			  							<input ng-model="model.amount" id="donation" name="donation" class="form-control input-md" ng-required="required" type="text">
+			 							 </div>
+										<div>
+										<a ng-click ="model.donate()" href="" class="btn btn-download">Donate</a>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!--/tabs-->
+					<!--tab panes-->
+					<div class="section-block">
+						<div class="tab-content">
+							<div role="tabpanel" class="tab-pane active" id="about">
+								<div class="about-information">
+									<h1 class="section-title">About {{model.project.Title}}</h1>
+									<p>{{model.project.story}}</p>
+									<p>{{model.project.story}}</p>
+							</div>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="updates">
+								<div class="update-information">
+								<h1 class="section-title">UPDATES</h1>
+									<!--update items-->
+									<div class="update-post">
+										<h4 class="update-title">We've started shipping!</h4>
+										<span class="update-date">Posted 2 days ago</span>
+										<p>Suspendisse luctus at massa sit amet bibendum. Cras commodo congue urna, vel dictum velit bibendum eget. Vestibulum quis risus euismod, facilisis lorem nec, dapibus leo. Quisque sodales eget dolor iaculis dapibus. Vivamus sit amet lacus ipsum. Nullam varius lobortis neque, et efficitur lacus. Quisque dictum tellus nec mi luctus imperdiet. Morbi vel aliquet velit, accumsan dapibus urna. Cras ligula orci, suscipit id eros non, rhoncus efficitur nisi.</p>
+									</div>
+									<div class="update-post">
+										<h4 class="update-title">Launch begins manufacturing </h4>
+										<span class="update-date">Posted 9 days ago</span>
+										<p>Suspendisse luctus at massa sit amet bibendum. Cras commodo congue urna, vel dictum velit bibendum eget. Vestibulum quis risus euismod, facilisis lorem nec, dapibus leo. Quisque sodales eget dolor iaculis dapibus. Vivamus sit amet lacus ipsum. Nullam varius lobortis neque, et efficitur lacus. Quisque dictum tellus nec mi luctus imperdiet. Morbi vel aliquet velit, accumsan dapibus urna. Cras ligula orci, suscipit id eros non, rhoncus efficitur nisi.</p>
+									</div>
+									<div class="update-post">
+										<h4 class="update-title">Designs have now been finalized</h4>
+										<span class="update-date">Posted 17 days ago</span>
+										<p>Suspendisse luctus at massa sit amet bibendum. Cras commodo congue urna, vel dictum velit bibendum eget. Vestibulum quis risus euismod, facilisis lorem nec, dapibus leo. Quisque sodales eget dolor iaculis dapibus. Vivamus sit amet lacus ipsum. Nullam varius lobortis neque, et efficitur lacus. Quisque dictum tellus nec mi luctus imperdiet. Morbi vel aliquet velit, accumsan dapibus urna. Cras ligula orci, suscipit id eros non, rhoncus efficitur nisi.</p>
+									</div>
+									<!--/update items-->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--/tabs-->
+				<!--/main content-->
+				<!--sidebar-->
+				<div class="content col-md-4 col-sm-12 col-xs-12">
+					
+					<div class="section-block">
+						<h1 class="section-title">REWARDS</h1>
+						<!--reward blocks-->
+						<div class="reward-block">
+							<h3>$10</h3>
+							<h2>Early Bird</h2>
+							<p>Curabitur accumsan sem sed velit ultrices fermentum. Pellentesque rutrum mi nec ipsum elementum aliquet. Sed id vestibulum eros. Nullam nunc velit, viverra sed consequat ac, pulvinar in metus.</p>
+							<span><i class="fa fa-users"></i> 180 backers</span>
+							<a href="" class="btn btn-reward">GET THIS REWARD</a>
+						</div>
+						<div class="reward-block popular">
+							<h3>$20</h3>
+							<h2>Value Bird</h2>
+							<p>Curabitur accumsan sem sed velit ultrices fermentum. Pellentesque rutrum mi nec ipsum elementum aliquet. Sed id vestibulum eros. Nullam nunc velit, viverra sed consequat ac, pulvinar in metus.</p>
+							<span><i class="fa fa-users"></i> 320 backers</span>
+							<a href="" class="btn btn-reward">GET THIS REWARD</a>
+						</div>
+						<div class="reward-block">
+							<h3>$30</h3>
+							<h2>Super Bird</h2>
+							<p>Curabitur accumsan sem sed velit ultrices fermentum. Pellentesque rutrum mi nec ipsum elementum aliquet. Sed id vestibulum eros. Nullam nunc velit, viverra sed consequat ac, pulvinar in metus.</p>
+							<span><i class="fa fa-users"></i> 105 backers</span>
+							<a href="" class="btn btn-reward">GET THIS REWARD</a>
+						</div>
+						<div class="reward-block last">
+							<h3>$50</h3>
+							<h2>Premium Bird</h2>
+							<p>Curabitur accumsan sem sed velit ultrices fermentum. Pellentesque rutrum mi nec ipsum elementum aliquet. Sed id vestibulum eros. Nullam nunc velit, viverra sed consequat ac, pulvinar in metus.</p>
+							<span><i class="fa fa-users"></i> 64 backers</span>
+							<a href="" class="btn btn-reward">GET THIS REWARD</a>
+						</div>
+						<!--/reward blocks-->
+					</div>
+					<!--credits-->
+					<div class="section-block">
+						<h1 class="section-title">CREDITS</h1>
+						<!--credits block-->
+						<div class="credit-block sources">
+							<ul class="list-unstyled">
+								<li><a href="http://getbootstrap.com/"><i class="fa fa-external-link"></i>Bootstrap</a></li>
+								<li><a href="http://fortawesome.github.io/Font-Awesome/"><i class="fa fa-external-link"></i>FontAwesome</a></li>
+								<li><a href="https://www.google.com/fonts"><i class="fa fa-external-link"></i>Google Fonts</a></li>
+								<li><a href="http://jquery.com/"><i class="fa fa-external-link"></i>jQuery</a></li>
+								<li><a href="https://vimeo.com/67938315"><i class="fa fa-external-link"></i>Vimeo Video</a></li>
+								<li><a href="http://uifaces.com/"><i class="fa fa-external-link"></i>Glasses Image</a></li>
+							</ul>
+						</div>
+						
+						<!--/credits block-->
+					</div>
+					<!--/credits-->
+				</div>
+				<!--/sidebar-->
+			</div>
+		</div>
+	</div>
+

@@ -1,0 +1,12 @@
+<div class="page-header" ng-init="dashboardCtrl.init()">
+	{{dashboardCtrl.messageDash}}
+	{{dashboardCtrl.message}}
+
+	<table>
+		<tr ng-repeat="project in dashboardCtrl.projects">
+			<td>{{ project.name }}</td>
+			<td><td><a ng-click="dashboardCtrl.viewProject({project})"
+					class="btn btn-primary"> View Project</a></td>
+		</tr>
+	</table>
+</div>

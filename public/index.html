@@ -1,0 +1,127 @@
+<html lang="en" ng-app="giveForCause">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.25, user-scalable = no">
+    <title>Project</title>
+    <script src="https://oss.maxcdn.com/html5shiv/latest/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/latest/respond.min.js"></script>
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/heroic-features.css" rel="stylesheet">
+    <link href="css/shop-homepage.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" type="text/css">
+  	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+   <script src="//code.angularjs.org/1.5.8/angular.js"></script>
+	<script src="//code.angularjs.org/1.5.8/angular-route.js"></script>
+	<script src="//code.angularjs.org/1.5.8/angular-cookies.js"></script>
+	<script src="js/app1.js"></script>
+    <script src="js/config.js"></script>
+    <script type="text/javascript" src="js/app-constants.js"></script>
+    <script src="services/project.service.client.js"></script>
+    <script src="services/category.service.client.js"></script>
+    <script src="services/auth.service.client.js"></script>
+    <script src="services/user.service.client.js"></script>
+ 	<script src="views/main/controllers/main.controller.client.js"></script>
+    <script src="views/admin/controllers/admin.controller.client.js"></script>
+    <script src="views/browseFundraiser/controllers/browse.controller.client.js"></script>
+    <script src="views/project/controllers/project.controller.client.js"></script>
+    <script src="views/createFundraiser/controllers/createFundraiser.controller.client.js"></script>
+    <script src="views/user/controllers/login.controller.client.js"></script>
+    <script src="views/user/controllers/logout.controller.client.js"></script>
+    <script src="views/user/controllers/profile.controller.client.js"></script>
+     <script src="views/main/controllers/settings.controller.client.js"></script>
+     <script src="views/createFundraiser/controllers/editFundraiser.controller.client.js"></script>
+     
+    
+    <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.2.0.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/">GIVEforCAUSE</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav" id="guest">
+                    <li>
+                        <a href="#/browse">BROWSE FUNDRAISERS</a>
+                    </li>
+                    <li>
+                        <a href="#/create">START FUNDRAISER</a>
+                    </li>
+                    <li>
+                        <a href="#/login">LOGIN</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav" id="user">
+                	<li>
+                        <a href="#/browse">BROWSE FUNDRAISERS</a>
+                    </li>
+                    <li>
+                        <a href="#/create">START FUNDRAISER</a>
+                    </li>
+                	<li>
+                    	<a href="#/profile">PROFILE</a>
+                    </li>
+                    <li>
+                    	<a href="#/settings">SETTINGS</a>
+                    </li>
+                    <li class="text-right">
+                    	<a href="#/logout">LOGOUT</a>
+                    </li>
+                </ul>
+                 <ul class="nav navbar-nav" id="admin">
+                	<li>
+                        <a href="#/browse">BROWSE</a>
+                    </li>
+                	
+                    <li>
+                    	<a href="#/settings">SETTINGS</a>
+                    </li>
+                    <li class="text-right">
+                    	<a href="#/logout">LOGOUT</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+	</header>
+	<div class="alert alert-danger col-sm-12" ng-show="model.message"><span class="lead"><strong>{{model.message}}</strong></span></div>
+	<div class="content">
+		<div ng-view ></div>	
+	</div>
+	
+	<!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Your Website 2014</p>
+            </div>
+        </div>
+    </footer>
+    <!-- /.container -->
+
+</body>
+
+</html>

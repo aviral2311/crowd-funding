@@ -1,0 +1,66 @@
+<div class="container">
+	<div class="row">
+		<h2>Start Your FundRaiser</h2>
+	</div>
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Help Others to Help Yourselves</legend>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="title">Title</label>  
+  <div class="col-md-6">
+  <input ng-model="project.title" id="title" name="title" ng-pattern ="/^[a-zA-Z0-9 ]+$/" placeholder="Give Your Fundraiser a name" class="form-control input-md" ng-required="required"type="text">
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="date">End Date</label>  
+  <div class="col-md-6">
+  <input ng-model="project.endDate"id="date" name="date" placeholder="choose an end date" class="form-control input-md" type="text" ng-required="required">
+    
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="description">Description</label>  
+  <div class="col-md-6">
+  <input ng-model="project.description" id="description" name="description" placeholder="Describe your Fundraiser in short" class="form-control input-md" ng-required="required" type="text">
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="story">Story</label>  
+  <div class="col-md-6">
+  <input ng-model="project.story" id="story" name="story" placeholder="Write Your Fundraiser Story Here" rows = "6" class="form-control input-md" ng-required="required" type="text">
+  </div>
+  <label class="col-md-1 control-label" for="cause">Cause</label>
+  <div class="col-md-2">
+    <select ng-model = "project.cause" id="cause" name="cause" placeholder ="please categorize your project" class="form-control">
+      <option ng-repeat="cause in model.causeList" value="{{cause.causeId}}">{{cause.causeName}}</option>
+    </select>
+   </div>
+</div>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" ng-pattern="/^[0-9]+$/" for="goal">Goal</label>  
+  <div class="col-md-6">
+  <input ng-model="project.goal" id="goal" name="goal" placeholder="Choose Exact Amount(not in decimals)" class="form-control input-md" ng-required="required" type="text">
+    
+  </div>
+</div>
+
+  <label class="col-md-4 control-label" for="submit"></label>
+  <div class="col-md-2">
+    <button ng-click="model.createProject(project)" id="submit" name="submit" class="btn btn-primary">Submit</button>
+  </div>
+
+
+</fieldset>
+</form>
+
+</div>
+
